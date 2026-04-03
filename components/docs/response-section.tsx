@@ -1,3 +1,4 @@
+import { EXAMPLE_SCREENSHOT_RESPONSE_JSON } from "@/lib/docs-example-response";
 import { DocsCodeBlock } from "./docs-code-block";
 
 export function ResponseSection() {
@@ -7,19 +8,10 @@ export function ResponseSection() {
         Example response
       </h2>
       <p className="text-muted-foreground mb-6 max-w-3xl">
-        Successful responses include a hosted screenshot URL, format, dimensions, and timing
-        metadata.
+        Successful responses include the screenshot URL, id, format, dimensions, flags, file size,
+        timestamps, and <code className="font-mono text-sm">response_time_ms</code>.
       </p>
-      <DocsCodeBlock title="JSON">
-        {`{
-  "success": true,
-  "screenshot_url": "https://captureapi.s3.amazonaws.com/user_1/screenshots/uuid.png",
-  "format": "png",
-  "width": 1920,
-  "height": 1080,
-  "response_time_ms": 2345
-}`}
-      </DocsCodeBlock>
+      <DocsCodeBlock title="JSON">{EXAMPLE_SCREENSHOT_RESPONSE_JSON}</DocsCodeBlock>
     </section>
   );
 }

@@ -1,3 +1,4 @@
+import { EXAMPLE_SCREENSHOT_RESPONSE_JSON } from "@/lib/docs-example-response";
 import { DocsCodeBlock } from "./docs-code-block";
 
 export function QuickstartSection() {
@@ -17,12 +18,7 @@ export function QuickstartSection() {
       </DocsCodeBlock>
 
       <h3 className="text-sm font-medium text-foreground mt-10 mb-3">Example response</h3>
-      <DocsCodeBlock title="JSON">
-        {`{
-  "success": true,
-  "screenshot_url": "https://captureapi.s3.amazonaws.com/user_1/screenshots/uuid.png"
-}`}
-      </DocsCodeBlock>
+      <DocsCodeBlock title="JSON">{EXAMPLE_SCREENSHOT_RESPONSE_JSON}</DocsCodeBlock>
     </section>
   );
 }

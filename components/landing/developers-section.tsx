@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Copy, Check } from "lucide-react";
+import { EXAMPLE_SCREENSHOT_RESPONSE_JSON } from "@/lib/docs-example-response";
 
 const codeExamples = [
   {
@@ -37,21 +38,7 @@ print(response.json()["screenshot_url"])`,
   },
   {
     label: "Response",
-    code: `{
-  "success": true,
-  "screenshot_url": "https://captureapi.s3.amazonaws.com
-                    /user_id/screenshots/uuid.png",
-  "screenshot_id": 123,
-  "format": "png",
-  "width": 1920,
-  "height": 1080,
-  "full_page": false,
-  "remove_popups": false,
-  "file_size": 245678,
-  "created_at": "2024-01-15T10:30:00Z",
-  "expires_at": "2024-01-22T10:30:00Z",
-  "response_time_ms": 2345
-}`,
+    code: EXAMPLE_SCREENSHOT_RESPONSE_JSON,
   },
 ];
 

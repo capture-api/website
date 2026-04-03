@@ -7,6 +7,8 @@ import { QuickstartSection } from "@/components/docs/quickstart-section";
 import { ApiReferenceSection } from "@/components/docs/api-reference-section";
 import { ParametersSection } from "@/components/docs/parameters-section";
 import { ResponseSection } from "@/components/docs/response-section";
+import { HealthEndpointSection } from "@/components/docs/health-endpoint-section";
+import { AccountSummarySection } from "@/components/docs/account-summary-section";
 import { ErrorsSection } from "@/components/docs/errors-section";
 import { RateLimitsSection } from "@/components/docs/rate-limits-section";
 import { ExamplesSection } from "@/components/docs/examples-section";
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function DocsPage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden noise-overlay pt-24 md:pt-28 pb-24">
+    <main className="relative min-h-screen noise-overlay pt-24 md:pt-28 pb-24">
       <Navigation />
       <DocsPageLayout>
         <DocsHero />
@@ -29,6 +31,8 @@ export default function DocsPage() {
         <ApiReferenceSection />
         <ParametersSection />
         <ResponseSection />
+        <HealthEndpointSection />
+        <AccountSummarySection />
         <ErrorsSection />
         <RateLimitsSection />
         <ExamplesSection />

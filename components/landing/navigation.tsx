@@ -9,9 +9,9 @@ const APP_URL = "https://app.captureapi.net";
 const navLinks = [
   { name: "Features", href: "/features" },
   { name: "Docs", href: "/docs" },
-  { name: "How it works", href: "/#how-it-works" },
-  { name: "Developers", href: "/#developers" },
   { name: "Pricing", href: "/pricing" },
+  { name: "About", href: "/about" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -69,7 +69,7 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a
+            <a target="_blank"
               href={APP_URL}
               className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}
             >
@@ -80,7 +80,7 @@ export function Navigation() {
               size="sm"
               className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
             >
-              <a href={APP_URL}>Start capturing</a>
+              <a target="_blank" href={APP_URL}>Start capturing</a>
             </Button>
           </div>
 
