@@ -1,3 +1,7 @@
+import type { Metadata } from "next";
+import { canonicalMetadata } from "@/lib/site";
+import { softwareApplicationHomeSchema } from "@/lib/json-ld-builders";
+import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { HeroSection } from "@/components/landing/hero-section";
 import { FeaturesSection } from "@/components/landing/features-section";
@@ -11,9 +15,14 @@ import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
 
+export const metadata: Metadata = {
+  ...canonicalMetadata("/"),
+};
+
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay">
+      <JsonLd data={softwareApplicationHomeSchema()} />
       <Navigation />
       <HeroSection />
       <FeaturesSection />

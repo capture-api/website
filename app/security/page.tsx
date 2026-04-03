@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canonicalMetadata } from "@/lib/site";
 import { Navigation } from "@/components/landing/navigation";
 import { SecurityHero } from "@/components/security/security-hero";
 import { SecuritySections } from "@/components/security/security-sections";
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: "Security | CaptureAPI",
   description:
     "How CaptureAPI secures API access, encryption, isolated rendering, infrastructure, and responsible disclosure.",
+  ...canonicalMetadata("/security"),
 };
 
 export default function SecurityPage() {

@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { canonicalMetadata } from "@/lib/site";
+import { aboutPageSchema } from "@/lib/json-ld-builders";
+import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { AboutHero } from "@/components/about/about-hero";
 import { AboutWhatIsSection } from "@/components/about/about-what-is-section";
@@ -13,11 +16,13 @@ export const metadata: Metadata = {
   title: "About CaptureAPI – Screenshot API for Developers",
   description:
     "Learn about CaptureAPI, a powerful website screenshot API built by developers at Peta Bytes, Inc to simplify automated website capture.",
+  ...canonicalMetadata("/about"),
 };
 
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay pt-24 md:pt-28">
+      <JsonLd data={aboutPageSchema()} />
       <Navigation />
       <AboutHero />
       <AboutWhatIsSection className="border-t-0" />

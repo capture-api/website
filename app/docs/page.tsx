@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { canonicalMetadata } from "@/lib/site";
+import { docsTechArticleSchema } from "@/lib/json-ld-builders";
+import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { DocsPageLayout } from "@/components/docs/docs-page-layout";
 import { DocsHero } from "@/components/docs/docs-hero";
@@ -18,11 +21,13 @@ export const metadata: Metadata = {
   title: "CaptureAPI Documentation – Screenshot API Guide",
   description:
     "Learn how to use CaptureAPI to generate website screenshots with a simple API request. Complete documentation, parameters, and examples.",
+  ...canonicalMetadata("/docs"),
 };
 
 export default function DocsPage() {
   return (
     <main className="relative min-h-screen noise-overlay pt-24 md:pt-28 pb-24">
+      <JsonLd data={docsTechArticleSchema()} />
       <Navigation />
       <DocsPageLayout>
         <DocsHero />

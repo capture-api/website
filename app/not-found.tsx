@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Page not found | CaptureAPI",
   description:
     "The page you are looking for does not exist or may have been moved. Return home or browse our documentation.",
+  robots: { index: false, follow: true },
 };
 
 export default function NotFound() {

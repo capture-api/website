@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canonicalMetadata } from "@/lib/site";
 import { Navigation } from "@/components/landing/navigation";
 import { PrivacyHero } from "@/components/privacy/privacy-hero";
 import { PrivacyPolicySections } from "@/components/privacy/privacy-policy-sections";
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | CaptureAPI",
   description:
     "How CaptureAPI collects, uses, and protects information when you use our website screenshot API and services. Operated by Peta Bytes, Inc.",
+  ...canonicalMetadata("/privacy-policy"),
 };
 
 export default function PrivacyPolicyPage() {
