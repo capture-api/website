@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   title: 'Website Screenshot API for Developers | CaptureAPI',
   description:
     'Capture website screenshots instantly with our fast Screenshot API. Convert URLs to images, thumbnails, or PDFs with a scalable developer API.',
+  icons: {
+    icon: [{ url: "/captureapi-icon.png", type: "image/png" }],
+    shortcut: "/captureapi-icon.png",
+  },
 }
 
 export default function RootLayout({
