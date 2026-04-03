@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { messageFromApiError } from "@/lib/contact-errors";
+import { getContactEndpointUrl } from "@/lib/contact-api";
 
 type ContactFormSectionProps = {
   className?: string;
@@ -30,7 +31,7 @@ export function ContactFormSection({ className }: ContactFormSectionProps) {
     };
 
     try {
-      const res = await fetch("/contact", {
+      const res = await fetch(getContactEndpointUrl(), {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data),

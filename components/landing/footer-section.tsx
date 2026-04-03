@@ -14,12 +14,10 @@ const footerLinks = {
     { name: "Documentation", href: "/docs" },
     { name: "API Reference", href: "/docs#api-reference" },
     { name: "SDK", href: "/#developers" },
-    { name: "Status", href: "#" },
   ],
   Company: [
     { name: "About", href: "/about" },
-    { name: "Blog", href: "#" },
-    { name: "Careers", href: "#", badge: "Hiring" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ],
   Legal: [
@@ -31,8 +29,8 @@ const footerLinks = {
 
 const socialLinks = [
   { name: "Twitter", href: "#" },
-  { name: "GitHub", href: "#" },
-  { name: "LinkedIn", href: "#" },
+  { name: "GitHub", href: "https://github.com/capture-api/" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/captureapi/" },
 ];
 
 export function FooterSection() {
@@ -50,12 +48,12 @@ export function FooterSection() {
             {/* Brand Column */}
             <div className="col-span-2">
               <a href="/" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display">Optimus</span>
-                <span className="text-xs text-muted-foreground font-mono">TM</span>
+                <span className="text-2xl font-display">Capture</span>
+                <span className="text-xs text-muted-foreground font-mono">API</span>
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                The platform for teams who ship. Build, deploy, and scale with unprecedented velocity.
+              CaptureAPI is a fast and reliable API that allows developers to capture website screenshots instantly with a simple request.
               </p>
 
               {/* Social Links */}
@@ -102,7 +100,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            2025 Optimus. All rights reserved.
+            {new Date().getFullYear()} CaptureAPI. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
