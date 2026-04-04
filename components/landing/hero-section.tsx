@@ -13,9 +13,9 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* Animated sphere background */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] opacity-40 pointer-events-none">
+    <section className="relative isolate z-0 min-h-[100dvh] flex flex-col justify-center overflow-hidden pb-28 sm:pb-32 md:pb-24">
+      {/* Animated sphere background — scaled down on small screens so it doesn’t overlap following sections */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[min(100vw,420px)] h-[min(100vw,420px)] sm:w-[520px] sm:h-[520px] lg:w-[800px] lg:h-[800px] opacity-40 pointer-events-none -z-10">
         <AnimatedSphere />
       </div>
       
@@ -45,7 +45,7 @@ export function HeroSection() {
         ))}
       </div>
       
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 pt-28 pb-8 sm:pt-32 sm:pb-12 lg:py-40">
         {/* Eyebrow */}
         <div 
           className={`mb-8 transition-all duration-700 ${
@@ -70,18 +70,18 @@ export function HeroSection() {
         </div>
         
         {/* Description */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-end">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-24 lg:items-end">
           <p 
-            className={`text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
+            className={`text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
             Capture website screenshots at scale with a fast, developer-friendly API. Turn any URL into a screenshot in seconds.
           </p>
           
-          {/* CTAs */}
+          {/* CTAs — above page content that follows (z-index + stacking) */}
           <div 
-            className={`flex flex-col sm:flex-row items-start gap-4 transition-all duration-700 delay-300 ${
+            className={`relative z-20 flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 transition-all duration-700 delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
@@ -109,11 +109,11 @@ export function HeroSection() {
       
       {/* Stats marquee - full width outside container */}
       <div 
-        className={`absolute bottom-24 left-0 right-0 transition-all duration-700 delay-500 ${
+        className={`pointer-events-none absolute bottom-8 sm:bottom-16 md:bottom-24 left-0 right-0 z-[1] transition-all duration-700 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="flex gap-16 marquee whitespace-nowrap">
+        <div className="flex gap-8 sm:gap-16 marquee whitespace-nowrap overflow-hidden">
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-16">
               {[

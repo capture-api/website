@@ -46,7 +46,7 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
 
 const metrics = [
   { 
-    value: 12500000,
+    value: 500000,
     suffix: "+",
     prefix: "",
     label: "Screenshots captured",

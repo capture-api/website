@@ -75,15 +75,15 @@ export function HowItWorksSection() {
         }} />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 min-w-0 overflow-x-hidden">
         {/* Header */}
-        <div className="mb-16 lg:mb-24">
+        <div className="mb-10 sm:mb-16 lg:mb-24">
           <span className="inline-flex items-center gap-3 text-sm font-mono text-background/50 mb-6">
             <span className="w-8 h-px bg-background/30" />
             Process
           </span>
           <h2
-            className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
+            className={`text-3xl sm:text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
@@ -94,25 +94,25 @@ export function HowItWorksSection() {
         </div>
 
         {/* Main content */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24">
           {/* Steps */}
-          <div className="space-y-0">
+          <div className="space-y-0 min-w-0 order-1">
             {steps.map((step, index) => (
               <button
                 key={step.number}
                 type="button"
                 onClick={() => setActiveStep(index)}
-                className={`w-full text-left py-8 border-b border-background/10 transition-all duration-500 group ${
+                className={`w-full text-left py-5 sm:py-7 md:py-8 border-b border-background/10 transition-all duration-500 group ${
                   activeStep === index ? "opacity-100" : "opacity-40 hover:opacity-70"
                 }`}
               >
-                <div className="flex items-start gap-6">
-                  <span className="font-display text-3xl text-background/30">{step.number}</span>
-                  <div className="flex-1">
-                    <h3 className="text-2xl lg:text-3xl font-display mb-3 group-hover:translate-x-2 transition-transform duration-300">
+                <div className="flex items-start gap-3 sm:gap-6">
+                  <span className="font-display text-2xl sm:text-3xl text-background/30 shrink-0">{step.number}</span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-display mb-2 sm:mb-3 group-hover:translate-x-2 transition-transform duration-300">
                       {step.title}
                     </h3>
-                    <p className="text-background/60 leading-relaxed">
+                    <p className="text-sm sm:text-base text-background/60 leading-relaxed">
                       {step.description}
                     </p>
                     
@@ -134,10 +134,10 @@ export function HowItWorksSection() {
           </div>
 
           {/* Code display */}
-          <div className="lg:sticky lg:top-32 self-start">
-            <div className="border border-background/10 overflow-hidden">
+          <div className="order-2 lg:sticky lg:top-32 self-start w-full min-w-0">
+            <div className="border border-background/10 overflow-hidden rounded-lg sm:rounded-none">
               {/* Window header */}
-              <div className="px-6 py-4 border-b border-background/10 flex items-center justify-between">
+              <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-background/10 flex items-center justify-between gap-2">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                   <div className="w-3 h-3 rounded-full bg-background/20" />
@@ -147,8 +147,8 @@ export function HowItWorksSection() {
               </div>
 
               {/* Code content */}
-              <div className="p-8 font-mono text-sm min-h-[280px]">
-                <pre className="text-background/70">
+              <div className="p-4 sm:p-6 lg:p-8 font-mono text-[11px] sm:text-xs md:text-sm min-h-[200px] sm:min-h-[260px] lg:min-h-[280px] overflow-x-auto overscroll-x-contain">
+                <pre className="text-background/70 whitespace-pre min-w-min">
                   {steps[activeStep].code.split('\n').map((line, lineIndex) => (
                     <div 
                       key={`${activeStep}-${lineIndex}`} 
@@ -177,7 +177,7 @@ export function HowItWorksSection() {
               </div>
 
               {/* Status */}
-              <div className="px-6 py-4 border-t border-background/10 flex items-center gap-3">
+              <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-background/10 flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-xs font-mono text-background/40">Ready</span>
               </div>

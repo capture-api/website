@@ -114,10 +114,10 @@ export function DevelopersSection() {
   }, []);
 
   return (
-    <section id="developers" ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="developers" ref={sectionRef} className="relative py-16 sm:py-24 lg:py-32 overflow-x-hidden">
       <style dangerouslySetInnerHTML={{ __html: codeAnimationStyles }} />
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 min-w-0">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-start">
           {/* Left: Content */}
           <div
             className={`transition-all duration-700 ${
@@ -128,28 +128,30 @@ export function DevelopersSection() {
               <span className="w-8 h-px bg-foreground/30" />
               For developers
             </span>
-            <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display tracking-tight mb-6 sm:mb-8">
               Built by devs.
               <br />
               <span className="text-muted-foreground">For devs.</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-            Capture website screenshots with a simple API request. 
-Integrate in seconds using Node.js, Python, cURL, or any HTTP client.
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-xl">
+              Capture website screenshots with a simple API request. Integrate in seconds using
+              Node.js, Python, cURL, or any HTTP client.
             </p>
             
-            {/* Features */}
-            <div className="grid grid-cols-2 gap-6">
+            {/* Features — single column on narrow screens so copy doesn’t truncate */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {features.map((feature, index) => (
                 <div
                   key={feature.title}
-                  className={`transition-all duration-500 ${
+                  className={`min-w-0 transition-all duration-500 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{ transitionDelay: `${index * 50 + 200}ms` }}
                 >
-                  <h3 className="font-medium mb-1">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                  <h3 className="font-medium mb-1 text-[15px] sm:text-base">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-snug sm:leading-normal">
+                    {feature.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -157,19 +159,19 @@ Integrate in seconds using Node.js, Python, cURL, or any HTTP client.
           
           {/* Right: Code block */}
           <div
-            className={`lg:sticky lg:top-32 transition-all duration-700 delay-200 ${
+            className={`w-full min-w-0 lg:sticky lg:top-32 transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             }`}
           >
-            <div className="border border-foreground/10">
+            <div className="border border-foreground/10 rounded-lg sm:rounded-none overflow-hidden">
               {/* Tabs */}
-              <div className="flex items-center border-b border-foreground/10">
+              <div className="flex items-stretch border-b border-foreground/10 overflow-x-auto overflow-y-hidden">
                 {codeExamples.map((example, idx) => (
                   <button
                     key={example.label}
                     type="button"
                     onClick={() => setActiveTab(idx)}
-                    className={`px-6 py-4 text-sm font-mono transition-colors relative ${
+                    className={`shrink-0 px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-mono transition-colors relative ${
                       activeTab === idx
                         ? "text-foreground"
                         : "text-muted-foreground hover:text-foreground"
@@ -185,7 +187,7 @@ Integrate in seconds using Node.js, Python, cURL, or any HTTP client.
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="px-4 py-4 text-muted-foreground hover:text-foreground transition-colors"
+                  className="shrink-0 px-3 sm:px-4 py-3 sm:py-4 text-muted-foreground hover:text-foreground transition-colors"
                   aria-label="Copy code"
                 >
                   {copied ? (
@@ -197,8 +199,8 @@ Integrate in seconds using Node.js, Python, cURL, or any HTTP client.
               </div>
               
               {/* Code content */}
-              <div className="p-8 font-mono text-sm bg-foreground/[0.01] min-h-[220px]">
-                <pre className="text-foreground/80">
+              <div className="p-4 sm:p-6 lg:p-8 font-mono text-[11px] sm:text-xs md:text-sm bg-foreground/[0.01] min-h-[180px] sm:min-h-[220px] overflow-x-auto overscroll-x-contain">
+                <pre className="text-foreground/80 whitespace-pre min-w-min">
                   {codeExamples[activeTab].code.split('\n').map((line, lineIndex) => (
                     <div 
                       key={`${activeTab}-${lineIndex}`} 
