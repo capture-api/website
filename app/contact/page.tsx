@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { canonicalMetadata } from "@/lib/site";
-import { contactPageSchema } from "@/lib/json-ld-builders";
+import { breadcrumbListSchema, contactPageSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { ContactHero } from "@/components/contact/contact-hero";
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay pt-24 md:pt-28">
-      <JsonLd data={contactPageSchema()} />
+      <JsonLd data={[contactPageSchema(), breadcrumbListSchema("/contact")]} />
       <Navigation />
       <ContactHero />
       <ContactDetailsSection />

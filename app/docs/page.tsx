@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { canonicalMetadata } from "@/lib/site";
-import { docsTechArticleSchema } from "@/lib/json-ld-builders";
+import { breadcrumbListSchema, docsTechArticleSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { DocsPageLayout } from "@/components/docs/docs-page-layout";
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function DocsPage() {
   return (
     <main className="relative min-h-screen noise-overlay pt-24 md:pt-28 pb-24">
-      <JsonLd data={docsTechArticleSchema()} />
+      <JsonLd data={[docsTechArticleSchema(), breadcrumbListSchema("/docs")]} />
       <Navigation />
       <DocsPageLayout>
         <DocsHero />

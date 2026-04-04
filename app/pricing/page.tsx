@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { canonicalMetadata } from "@/lib/site";
-import { pricingFaqPageSchema, pricingProductSchema } from "@/lib/json-ld-builders";
+import {
+  breadcrumbListSchema,
+  pricingFaqPageSchema,
+  pricingProductSchema,
+} from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { PricingSection } from "@/components/pricing/pricing-section";
@@ -18,7 +22,9 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay pt-24 md:pt-28">
-      <JsonLd data={[pricingProductSchema(), pricingFaqPageSchema()]} />
+      <JsonLd
+        data={[pricingProductSchema(), pricingFaqPageSchema(), breadcrumbListSchema("/pricing")]}
+      />
       <Navigation />
       <PricingSection className="border-t-0" />
       <FaqSection />

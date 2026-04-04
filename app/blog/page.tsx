@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { canonicalMetadata } from "@/lib/site";
-import { blogIndexArticleSchema } from "@/lib/json-ld-builders";
+import { blogIndexArticleSchema, breadcrumbListSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { BlogHero } from "@/components/blog/blog-hero";
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay pt-24 md:pt-28">
-      <JsonLd data={blogIndexArticleSchema()} />
+      <JsonLd data={[blogIndexArticleSchema(), breadcrumbListSchema("/blog")]} />
       <Navigation />
       <BlogHero />
       <BlogListSection />

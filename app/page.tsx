@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { canonicalMetadata } from "@/lib/site";
-import { softwareApplicationHomeSchema } from "@/lib/json-ld-builders";
+import { breadcrumbListSchema, softwareApplicationHomeSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { HeroSection } from "@/components/landing/hero-section";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay">
-      <JsonLd data={softwareApplicationHomeSchema()} />
+      <JsonLd data={[softwareApplicationHomeSchema(), breadcrumbListSchema("/")]} />
       <Navigation />
       <HeroSection />
       <FeaturesSection />

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { breadcrumbListSchema } from "@/lib/json-ld-builders";
+import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
 import { Button } from "@/components/ui/button";
@@ -14,6 +16,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay pt-24 md:pt-28 flex flex-col">
+      <JsonLd data={breadcrumbListSchema("/")} />
       <Navigation />
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-20 md:py-28 lg:py-32 max-w-2xl mx-auto w-full text-center">
         <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-6">

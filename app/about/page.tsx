@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { canonicalMetadata } from "@/lib/site";
-import { aboutPageSchema } from "@/lib/json-ld-builders";
+import { aboutPageSchema, breadcrumbListSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
 import { AboutHero } from "@/components/about/about-hero";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay pt-24 md:pt-28">
-      <JsonLd data={aboutPageSchema()} />
+      <JsonLd data={[aboutPageSchema(), breadcrumbListSchema("/about")]} />
       <Navigation />
       <AboutHero />
       <AboutWhatIsSection className="border-t-0" />
