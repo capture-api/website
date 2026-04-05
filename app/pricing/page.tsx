@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { canonicalMetadata } from "@/lib/site";
+import { seoPageMetadata } from "@/lib/site-metadata";
 import {
   breadcrumbListSchema,
   pricingFaqPageSchema,
@@ -12,12 +12,12 @@ import { FaqSection } from "@/components/pricing/faq-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = seoPageMetadata({
   title: "Screenshot API Pricing - Plans for Every Scale | CaptureAPI",
   description:
     "Explore CaptureAPI pricing plans for website screenshots. Start free and scale with powerful screenshot API features for developers and businesses.",
-  ...canonicalMetadata("/pricing"),
-};
+  pathname: "/pricing",
+});
 
 export default function PricingPage() {
   return (

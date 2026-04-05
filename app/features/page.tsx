@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { canonicalMetadata } from "@/lib/site";
+import { seoPageMetadata } from "@/lib/site-metadata";
 import { breadcrumbListSchema, featuresSoftwareApplicationSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
@@ -10,12 +10,12 @@ import { UseCasesSection } from "@/components/features/use-cases-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = seoPageMetadata({
   title: "Screenshot API Features – Powerful Website Capture | CaptureAPI",
   description:
     "Explore CaptureAPI features including full-page screenshots, popup removal, multiple formats, and fast screenshot rendering with a simple API.",
-  ...canonicalMetadata("/features"),
-};
+  pathname: "/features",
+});
 
 export default function FeaturesPage() {
   return (

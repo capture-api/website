@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { canonicalMetadata } from "@/lib/site";
+import { seoPageMetadata } from "@/lib/site-metadata";
 import { breadcrumbListSchema, docsTechArticleSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
@@ -17,12 +17,12 @@ import { RateLimitsSection } from "@/components/docs/rate-limits-section";
 import { ExamplesSection } from "@/components/docs/examples-section";
 import { FooterSection } from "@/components/landing/footer-section";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = seoPageMetadata({
   title: "CaptureAPI Documentation – Screenshot API Guide",
   description:
     "Learn how to use CaptureAPI to generate website screenshots with a simple API request. Complete documentation, parameters, and examples.",
-  ...canonicalMetadata("/docs"),
-};
+  pathname: "/docs",
+});
 
 export default function DocsPage() {
   return (

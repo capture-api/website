@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { canonicalMetadata } from "@/lib/site";
+import { defaultDescription, defaultTitle, seoPageMetadata } from "@/lib/site-metadata";
 import { breadcrumbListSchema, softwareApplicationHomeSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
@@ -15,9 +15,11 @@ import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
 
-export const metadata: Metadata = {
-  ...canonicalMetadata("/"),
-};
+export const metadata: Metadata = seoPageMetadata({
+  title: defaultTitle,
+  description: defaultDescription,
+  pathname: "/",
+});
 
 export default function Home() {
   return (

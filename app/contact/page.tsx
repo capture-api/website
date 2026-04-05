@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { canonicalMetadata } from "@/lib/site";
+import { seoPageMetadata } from "@/lib/site-metadata";
 import { breadcrumbListSchema, contactPageSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
@@ -9,12 +9,12 @@ import { ContactFormSection } from "@/components/contact/contact-form-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = seoPageMetadata({
   title: "Contact Us | CaptureAPI",
   description:
     "Contact the CaptureAPI team for sales, support, or partnership questions. We typically respond within one business day.",
-  ...canonicalMetadata("/contact"),
-};
+  pathname: "/contact",
+});
 
 export default function ContactPage() {
   return (

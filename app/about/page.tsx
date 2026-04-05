@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { canonicalMetadata } from "@/lib/site";
+import { seoPageMetadata } from "@/lib/site-metadata";
 import { aboutPageSchema, breadcrumbListSchema } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
@@ -12,12 +12,12 @@ import { AboutWhySection } from "@/components/about/about-why-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = seoPageMetadata({
   title: "About CaptureAPI – Screenshot API for Developers",
   description:
     "Learn about CaptureAPI, a powerful website screenshot API built by developers at Peta Bytes, Inc to simplify automated website capture.",
-  ...canonicalMetadata("/about"),
-};
+  pathname: "/about",
+});
 
 export default function AboutPage() {
   return (

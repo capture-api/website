@@ -2,7 +2,7 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { getSiteUrl } from "@/lib/site"
+import { buildRootMetadata } from "@/lib/site-metadata"
 import { organizationSchema } from "@/lib/json-ld-builders"
 import { JsonLd } from "@/components/json-ld/json-ld"
 import './globals.css'
@@ -23,16 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains'
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(getSiteUrl()),
-  title: 'Website Screenshot API for Developers | CaptureAPI',
-  description:
-    'Capture website screenshots instantly with our fast Screenshot API. Convert URLs to images, thumbnails, or PDFs with a scalable developer API.',
-  icons: {
-    icon: [{ url: "/captureapi-icon.png", type: "image/png" }],
-    shortcut: "/captureapi-icon.png",
-  },
-}
+export const metadata: Metadata = buildRootMetadata()
 
 export default function RootLayout({
   children,
