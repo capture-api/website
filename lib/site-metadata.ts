@@ -65,6 +65,9 @@ export function buildRootMetadata(): Metadata {
         follow: true,
       },
     },
+    verification: {
+      google: "9mu5EMh47ce8VxyLEpGQv-sqWZ-3i6vSt_4M9QcgLlE",
+    },
   }
 }
 
