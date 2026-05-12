@@ -3,7 +3,7 @@ import { seoPageMetadata } from "@/lib/site-metadata";
 import {
   breadcrumbListSchema,
   pricingFaqPageSchema,
-  pricingProductSchema,
+  pricingSoftwareApplicationSchema,
 } from "@/lib/json-ld-builders";
 import { JsonLd } from "@/components/json-ld/json-ld";
 import { Navigation } from "@/components/landing/navigation";
@@ -23,7 +23,11 @@ export default function PricingPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden noise-overlay pt-24 md:pt-28">
       <JsonLd
-        data={[pricingProductSchema(), pricingFaqPageSchema(), breadcrumbListSchema("/pricing")]}
+        data={[
+          pricingSoftwareApplicationSchema(),
+          pricingFaqPageSchema(),
+          breadcrumbListSchema("/pricing"),
+        ]}
       />
       <Navigation />
       <PricingSection className="border-t-0" />

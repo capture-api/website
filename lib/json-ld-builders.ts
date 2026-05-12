@@ -132,16 +132,16 @@ export function softwareApplicationHomeSchema() {
   };
 }
 
-export function pricingProductSchema() {
+export function pricingSoftwareApplicationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "SoftwareApplication",
     name: "CaptureAPI Screenshot API",
-    description: "API for capturing website screenshots programmatically.",
-    brand: {
-      "@type": "Brand",
-      name: "CaptureAPI",
-    },
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Web",
+    description:
+      "Software application and API service for capturing website screenshots programmatically—full page, viewport, and multiple output formats at scale.",
+    url: abs("/pricing"),
     offers: {
       "@type": "Offer",
       priceCurrency: "USD",
